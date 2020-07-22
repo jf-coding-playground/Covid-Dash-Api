@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 require('dotenv').config()
-const app = require('../app')
+const expressApp = require('./config/express')
 const debug = require('debug')('covid-dash-api:server')
 const http = require('http')
 
@@ -13,13 +13,13 @@ const http = require('http')
  */
 
 const port = normalizePort(process.env.PORT || '3000')
-app.set('port', port)
+expressApp.set('port', port)
 
 /**
  * Create HTTP server.
  */
 
-const server = http.createServer(app)
+const server = http.createServer(expressApp)
 
 /**
  * Listen on provided port, on all network interfaces.
